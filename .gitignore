@@ -1,0 +1,4 @@
+*.pyc
+secrets
+secrets/client_secrets.json
+secrets/user_secrets.json
