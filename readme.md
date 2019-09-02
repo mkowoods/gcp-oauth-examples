@@ -1,25 +1,24 @@
 # Configuring OAUTH Authentication
 
-### Perhaps one of the hardest things to do on GCP is configuring a *simple* security model for a REST API this project documents the steps for leveraging
-### google's oauth2 based authentication model for an app engine API.
+### Perhaps one of the hardest things to do on GCP is configuring a *simple* security model for a REST API(in my case on app engine) this project documents the steps for leveraging. It's worth noting that in the legacy Standarad Environment (for python 2.7) a lot of this functionality was builtin into custom libraries, but with the move to App Engine becoming essengialy a wrapper for "Flask Containers on GKE"
 
 
 
 
  FAQ:
   - How Do I get the client_secrets.json?
-   - Login to console and navigate to APIS & Services > Credentials. Click Create Credentials > Other. Once Created you can now Download as JSON
+    - Login to console and navigate to APIS & Services > Credentials. Click Create Credentials > Other. Once Created you can now Download as JSON
   
   - How Do I get the user_secrets.json?
-   - Using your client_secrets.json, example: 
-     - `python ./oauth_flow/fetch_user_credentials.py --client-secrets-path=./secrets/client_secrets.json --user-credentials-ouput-dir=/tmp`
+    - Using your client_secrets.json, example: 
+      - `python ./oauth_flow/fetch_user_credentials.py --client-secrets-path=./secrets/client_secrets.json --user-credentials-ouput-dir=/tmp`
   - What are Scopes and what are the options?
     - https://developers.google.com/identity/protocols/googlescopes
     - Note: For configuring support for internal services use: https://www.googleapis.com/auth/userinfo.email
 
 
   - How do I authenticate a service account?
-   - `python ./oauth_flow/load_and_verify_service_account.py --path=./secrets/service_account_secrets.json --test-api`
+    - `python ./oauth_flow/load_and_verify_service_account.py --path=./secrets/service_account_secrets.json --test-api`
 
 Good Highlevel Explanation of JWT and there purpose: https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
 
