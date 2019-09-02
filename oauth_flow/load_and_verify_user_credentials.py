@@ -27,7 +27,7 @@ def get_credentials_from_user_file(fname):
     )
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Example with long option names')
+    parser = argparse.ArgumentParser(description='Arguments')
     parser.add_argument('--path', action="store", dest="path")
     parser.add_argument('--test-api', action='store_true')
     results = parser.parse_args()

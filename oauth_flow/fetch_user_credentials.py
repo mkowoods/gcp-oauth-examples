@@ -10,7 +10,7 @@ https://google-auth-oauthlib.readthedocs.io/en/latest/reference/google_auth_oaut
 
 """
 
-
+import argparse
 import datetime
 import json
 
@@ -25,6 +25,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Commad Line argumet ')
     parser.add_argument('--client-secrets-path', action="store", dest="client_secrets_path")
+    parser.add_argument('--user-credentials-ouput-dir', action="store")
     results = parser.parse_args()
 
 
@@ -37,7 +38,16 @@ if __name__ == "__main__":
     credentials = flow.run_console() #https://google-auth.readthedocs.io/en/stable/reference/google.oauth2.credentials.html#google.oauth2.credentials.Credentials
 
     #this saves the user access token and refresh token to 
-    json.dump(credentials.__dict__, open(USER_CREDENTIALS_FNAME, 'w'), default=default)
-    print('Successfully Stored User Secrets')
+    path = None
+    if results.user_credentials_ouput_dir:
+        path = '{}/credentials.json'.format(results.user_credentials_ouput_dir)
+
+    if path is None:
+        print('\n\n############ credentials.json ####################\n\n')
+        print(json.dumps(credentials.__dict__, default=default))
+        print('\n\n')
+    else:
+        json.dump(credentials.__dict__, open(path, 'w'), default=default)
+        print('Successfully Stored User Secrets', path)
     
 
