@@ -1,6 +1,6 @@
 # Configuring OAUTH Authentication
 
-### perhaps one of the worse features of GCP is configuring a *simple* security model for a REST API this project documents the steps for leveraging
+### Perhaps one of the hardest things to do on GCP is configuring a *simple* security model for a REST API this project documents the steps for leveraging
 ### google's oauth2 based authentication model for an app engine API.
 
 
