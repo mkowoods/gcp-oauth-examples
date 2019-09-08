@@ -16,6 +16,7 @@ def check_domain(email):
 
 def validate_claims(token: str, client_id: str = CLIENT_ID) -> dict:
     # Specify the CLIENT_ID of the app that accesses the backend:
+    # ALWAYS VALIDATE TO A CLIENT_ID: https://stackoverflow.com/questions/17241771/how-and-why-is-google-oauth-token-validation-performed
     assert client_id is not None
 
     idinfo = id_token.verify_oauth2_token(token, Request(), client_id)

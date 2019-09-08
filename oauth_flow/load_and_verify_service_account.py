@@ -23,6 +23,13 @@ def verify_service_account_token(token):
     return resp.json()
 
 
+def get_openid_token(path_to_sa_secrets, target_audience, scopes=['email']):
+    return service_account.IDTokenCredentials.from_service_account_file(
+        '/Users/mwoods/Developer/gcp-oauth-examples/secrets/service_account_secrets.json', 
+        target_audience=target_audience,
+        scopes=scopes
+    )
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='argments to module')
     parser.add_argument('--path', action="store", dest="path")
@@ -32,7 +39,7 @@ if __name__ == "__main__":
     #credentials = service_account.Credentials.from_service_account_file(results.path, scopes=['email'])
     
     credentials = service_account.Credentials.from_service_account_file(results.path, scopes=SCOPES)
-    
+
     print(credentials.__dict__)
     credentials.refresh(Request())
     print(credentials.__dict__)
@@ -60,3 +67,5 @@ if __name__ == "__main__":
     #print(verify_oauth2_token(credentials.token, Request()), '103284928966445054496')
 
 #    storage_client = storage.Client(project='dev-testing-features', credentials=credentials)
+
+

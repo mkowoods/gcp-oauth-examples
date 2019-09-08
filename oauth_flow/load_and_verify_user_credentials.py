@@ -59,3 +59,11 @@ if __name__ == '__main__':
         resp = requests.get('http://localhost:5000/api/jwt-auth-hello', headers={'Authorization': 'Bearer {token}'.format(token=creds.id_token)})
         print('Status Code: {}\n'.format(resp.status_code))
         print(resp.json())
+
+
+        print('\n\n################ Test Access Token #################\n\n')
+        creds = get_credentials_from_user_file(results.path)
+        creds.refresh(Request())
+        print(creds.token)
+        resp = requests.get('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token={}'.format(creds.token))
+        print(resp.json())

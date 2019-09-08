@@ -3,6 +3,8 @@
 ### Perhaps one of the hardest things to do on GCP is configuring a *simple* security model for a REST API this project documents the steps for leveraging
 ### google's oauth2 based authentication model for an app engine API.
 
+TODO: 
+ - How do you validate Audience for Service Account? Confused Deputy Problem: https://stackoverflow.com/questions/17241771/how-and-why-is-google-oauth-token-validation-performed
 
 
 
@@ -13,6 +15,7 @@
   - How Do I get the user_secrets.json?
    - Using your client_secrets.json, example: 
      - `python ./oauth_flow/fetch_user_credentials.py --client-secrets-path=./secrets/client_secrets.json --user-credentials-ouput-dir=/tmp`
+     - `python ./oauth_flow/load_and_verify_user_credentials.py --path=/tmp/credentials.json --test-api`
   - What are Scopes and what are the options?
     - https://developers.google.com/identity/protocols/googlescopes
     - Note: For configuring support for internal services use: https://www.googleapis.com/auth/userinfo.email
