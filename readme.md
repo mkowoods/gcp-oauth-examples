@@ -25,9 +25,15 @@ TODO:
 ## Documentation: 
 
 Good End to End Example: https://developers.google.com/identity/protocols/OAuth2WebServer#example
+
 Good Highlevel Explanation of JWT and there purpose: https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
+
 Example validating a backend token : https://developers.google.com/identity/sign-in/web/backend-auth
+
 Documentation on just getting oauth flow working: https://stackoverflow.com/questions/10271110/python-oauth2-login-with-google
+
 Google's test cases for oauth workflow(probably best reference): https://github.com/googleapis/google-auth-library-python/tree/master/tests/oauth2
+
 Good Medium Post, but out of date: https://medium.com/@ashokyogi5/a-beginners-guide-to-google-oauth-and-google-apis-450f36389184
+
 Additional Documentation: https://github.com/salrashid123/gcpsamples/tree/master/auth/tokens
